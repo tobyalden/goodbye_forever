@@ -13,6 +13,7 @@ gem 'bcrypt-ruby', '~> 3.1.5', require: "bcrypt"
 gem 'pundit'
 gem 'rest-client'
 gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
+gem 'devise'
 
 group :development do
   gem 'byebug'
