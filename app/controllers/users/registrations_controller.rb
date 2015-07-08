@@ -4,22 +4,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  def new
-    super
-    @user = User.new
-  end
-
-  # POST /resource
-  def create
-    super
-    @user = User.new(user_params)
-    if @user.save
-      flash[:notice] = "User Created"
-      redirect_to root_path
-    else
-      render :new
-    end
-  end
+  # def new
+  #   super
+  # end
+  #
+  # # POST /resource
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit

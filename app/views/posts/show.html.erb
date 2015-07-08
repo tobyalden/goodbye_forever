@@ -5,6 +5,10 @@
   <%= image_tag @post.user.avatar.url(:thumb) %>
 </p>
 
+<p>
+  <a href= <%= @post.attached_file.url %>>raw link to attached file</a>
+</p>
+
 <%= @post.description %>
 
-<%= link_to 'back to index', posts_path %>
+<p> <%= link_to 'back to index', posts_path %> </p>

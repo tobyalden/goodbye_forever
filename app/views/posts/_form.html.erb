@@ -3,6 +3,7 @@
 <%= bootstrap_form_for(@post) do |f| %>
   <%= f.text_field :name, placeholder: "Post Title" %>
   <%= f.text_area :description, placeholder: "Post Description" %>
+  <%= f.file_field :attached_file %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.submit data: {disable_with: "Adding post.." }, class: "btn btn-info btn-block" %>
 <% end %>
