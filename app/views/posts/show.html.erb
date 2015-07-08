@@ -1,5 +1,10 @@
 <h1><%= @post.name %></h1>
 
-<p> Uploaded by <%= @post.user.name %> </p>
+<p>
+  Uploaded by <%= @post.user.name %>
+  <%= image_tag @post.user.avatar.url(:thumb) %>
+</p>
 
 <%= @post.description %>
+
+<%= link_to 'back to index', posts_path %>
