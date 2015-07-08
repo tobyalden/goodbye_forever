@@ -1,0 +1,11 @@
+<h1> <%= @user.name %> </h1>
+<%= image_tag @user.avatar.url(:thumb) %>
+
+<hr>
+<h3>Posts</h3>
+
+<% @user.posts.each do |post| %>
+<ul>
+  <li><%= link_to post.name, post_path(post) %></li>
+</ul>
+<% end %>
