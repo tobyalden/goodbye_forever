@@ -1,0 +1,13 @@
+<% if object.errors.any? %>
+
+  <% content_for(:title, "Error") %>
+  <div class="text-center">
+
+  <h3>Whoops.</h3>
+  <ul>
+    <% object.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>
