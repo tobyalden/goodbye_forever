@@ -10,3 +10,5 @@ users = User.create([
   { name: "Dave", email: "dave@dave.da", password: 'asdfghjkl', password_confirmation: 'asdfghjkl' },
   { name: "VOLTRON", email: "V@Tron.yeah", password: 'asdfghjkl', password_confirmation: 'asdfghjkl' }
         ])
+
+        
