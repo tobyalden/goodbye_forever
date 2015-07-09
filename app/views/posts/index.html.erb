@@ -1,17 +1,20 @@
 <h1>G O O D B Y E</h1>
 
 <% @posts.each do |post| %>
-  <% if post.visible? %>
     <ul>
+    <% if post.on_display? || (current_user && current_user.admin?) %>
       <li>
-        <% if post.copies_remaining <= 0 %>
+        <% if post.in_stock? %>
+          <%= link_to post.name, post_path(post) %>
+        <% elsif post.on_display? %>
           <s><%= link_to post.name, post_path(post) %></s>
         <% else %>
-          <%= link_to post.name, post_path(post) %>
+          <s class="grey"><%= link_to post.name, post_path(post) %></s>
         <% end %>
+
       </li>
-    </ul>
   <% end %>
+    </ul>
 <% end %>
 
 <%= link_to 'New post', new_post_path %>
