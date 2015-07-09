@@ -4,14 +4,17 @@
   Uploaded by <%= link_to @post.user.name, user_path(@post.user) %>
   <%= image_tag @post.user.avatar.url(:thumb) %>
 </p>
+<% if @post.copies_remaining > 0 %>
+  <p> Copies remaining: <%= @post.copies_remaining %> </p>
+  <p>
+    <%= link_to "Download", download_post_path(@post)  %>
+  </p>
 
-<p> Copies remaining: <%= @post.copies_remaining %> </p>
-
+<% else %>
+  <p>Nice try Sucka. No copies remaining. </p>
+<% end %>
 
 <p>  <%= @post.description %> </p>
 
 <hr>
-<p>
-  <a href= <%= @post.attached_file.url %>>raw link to attached file</a>
-</p>
 <p> <%= link_to 'back to index', posts_path %> </p>

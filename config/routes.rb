@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   }
 
   root 'posts#index'
-  resources :posts
+  resources :posts do
+    get :download, on: :member
+  end
+
   resources :users, only: :show
 
 end

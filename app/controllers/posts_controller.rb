@@ -14,6 +14,13 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def download
+    @post = Post.find(params[:id])
+    @post.update(copies_remaining: @post.copies_remaining - 1)
+    redirect_to @post.attached_file.url
+  end
+
+
   def create
     @post = Post.new(post_params)
     if @post.save
