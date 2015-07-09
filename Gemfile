@@ -11,10 +11,10 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootstrap_form'
 gem 'bcrypt-ruby', '~> 3.1.5', require: "bcrypt"
 gem 'pundit'
-gem 'rest-client'
 gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 gem 'devise'
 gem 'paperclip', '~> 4.3'
+gem 'aws-sdk'
 
 group :development do
   gem 'byebug'
