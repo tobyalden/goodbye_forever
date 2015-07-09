@@ -16,5 +16,12 @@
 
 <p>  <%= @post.description %> </p>
 
+<% if current_user && (current_user.admin? || @post.user == current_user) %>
+  <%= link_to post_path(@post), data: {confirm: "Destroy Post?", method: 'delete'} do %>
+    <span class="glyphicon glyphicon-trash red"></span>
+  <% end %>
+<% end %>
+
+
 <hr>
 <p> <%= link_to 'back to index', posts_path %> </p>
