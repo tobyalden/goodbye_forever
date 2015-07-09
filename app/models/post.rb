@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-  @@expiration_date = 30
+  @@expiration_date = 24 * 60 * 60
 
   validates :name, presence: true
   validates :description, presence: true
