@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708213448) do
+ActiveRecord::Schema.define(version: 20150709160550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150708213448) do
     t.string   "attached_file_content_type"
     t.integer  "attached_file_file_size"
     t.datetime "attached_file_updated_at"
+    t.integer  "copies_remaining",           default: 1
   end
 
   create_table "users", force: :cascade do |t|

@@ -5,10 +5,13 @@
   <%= image_tag @post.user.avatar.url(:thumb) %>
 </p>
 
+<p> Copies remaining: <%= @post.copies_remaining %> </p>
+
+
+<p>  <%= @post.description %> </p>
+
+<hr>
 <p>
   <a href= <%= @post.attached_file.url %>>raw link to attached file</a>
 </p>
-
-<%= @post.description %>
-
 <p> <%= link_to 'back to index', posts_path %> </p>
