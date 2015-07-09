@@ -18,3 +18,9 @@
 <% end %>
 
 <%= link_to 'New post', new_post_path %>
+
+<hr>
+
+<% if (current_user && current_user.admin?) %>
+  <%= link_to 'Purge stale posts (out of stock for more than 24 hours)', purge_posts_path, method: :delete %>
+<% end %>

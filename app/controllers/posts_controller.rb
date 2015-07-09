@@ -23,6 +23,15 @@ class PostsController < ApplicationController
     redirect_to @post.attached_file.url
   end
 
+  def purge
+    Post.all.each do |post|
+      if !post.on_display?
+        post.destroy
+      end
+    end
+    @posts = Post.all
+    redirect_to posts_path
+  end
 
   def create
     @post = Post.new(post_params)

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'posts#index'
   resources :posts do
     get :download, on: :member
+    delete :purge, on: :collection
   end
 
   resources :users, only: :show
