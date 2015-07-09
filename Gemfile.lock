@@ -261,7 +261,6 @@ DEPENDENCIES
   pry
   quiet_assets
   rails
-  rest-client (~> 1.6)
   rspec-rails
   sass-rails
   shoulda-matchers
