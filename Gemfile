@@ -12,7 +12,7 @@ gem 'bootstrap_form'
 gem 'bcrypt-ruby', '~> 3.1.5', require: "bcrypt"
 gem 'devise'
 gem 'paperclip', '~> 4.3'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 group :development do
   gem 'byebug'
