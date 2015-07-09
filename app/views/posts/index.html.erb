@@ -1,10 +1,17 @@
 <h1>G O O D B Y E</h1>
 
-
 <% @posts.each do |post| %>
-<ul>
-  <li><%= link_to post.name, post_path(post) %></li>
-</ul>
+  <% if post.visible? %>
+    <ul>
+      <li>
+        <% if post.copies_remaining <= 0 %>
+          <s><%= link_to post.name, post_path(post) %></s>
+        <% else %>
+          <%= link_to post.name, post_path(post) %>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
 <% end %>
 
 <%= link_to 'New post', new_post_path %>

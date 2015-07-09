@@ -17,6 +17,9 @@ class PostsController < ApplicationController
   def download
     @post = Post.find(params[:id])
     @post.update(copies_remaining: @post.copies_remaining - 1)
+    if @post.copies_remaining == 0
+      @post.update(time_sold_out: DateTime.now)
+    end
     redirect_to @post.attached_file.url
   end
 
