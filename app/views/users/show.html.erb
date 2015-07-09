@@ -9,3 +9,9 @@
   <li><%= link_to post.name, post_path(post) %></li>
 </ul>
 <% end %>
+
+<% if is_admin? %>
+  <%= link_to user_path(@user), data: {confirm: "Destroy User?", method: 'delete'} do %>
+    <span class="glyphicon glyphicon-remove-sign red">Delete User</span>
+  <% end %>
+<% end %>

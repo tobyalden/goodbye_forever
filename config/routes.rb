@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     delete :purge, on: :collection
   end
 
-  resources :users, only: :show
+  resources :users, only: [:show, :index, :destroy]
 
 end

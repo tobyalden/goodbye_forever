@@ -2,7 +2,7 @@
 
 <% @posts.each do |post| %>
     <ul>
-      <% if (current_user && current_user.admin?) %>
+      <% if is_admin? %>
         <li>
           <% if post.in_stock? %>
             <%= link_to post.name, post_path(post) %>
@@ -34,6 +34,6 @@
 
 <hr>
 
-<% if (current_user && current_user.admin?) %>
+<% if is_admin? %>
   <%= link_to 'Purge stale posts (out of stock for more than 24 hours)', purge_posts_path, method: :delete %>
 <% end %>

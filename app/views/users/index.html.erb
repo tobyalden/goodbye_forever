@@ -1,0 +1,11 @@
+<ul>
+
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.name, user_path(user) %>
+      <p>
+        Number of Live Posts:
+      </p> <%= user.posts.length %>
+    </li>
+  <% end %>
+</ul>
