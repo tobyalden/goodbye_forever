@@ -13,19 +13,19 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
 
- input[type=number]::-webkit-inner-spin-button,
- input[type=number]::-webkit-outer-spin-button {
-   -webkit-appearance: none;
-   margin: 0;
- }
-
-.grey a {
-  color: grey;
+div.field_with_errors {
+  display: inline;
 }
 
-.red {
-  color: red;
+th {
+    text-align: left;
+}
+
+table {
+    width: 100%;
+}
+
+#site-header {
+  float: right;
 }

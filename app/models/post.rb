@@ -2,8 +2,6 @@ class Post < ActiveRecord::Base
 
   @@expiration_date = 24 * 60 * 60
 
-  validates :name, presence: true
-  validates :description, presence: true
   validates :attached_file, presence: true
   validates :copies_remaining, presence: true
   belongs_to :user

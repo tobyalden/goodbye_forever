@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @post = Post.new
   end
 
   def show
@@ -34,12 +35,15 @@ class PostsController < ApplicationController
   end
 
   def create
+    @posts = Post.all
     @post = Post.new(post_params)
     if @post.save
-      flash[:notice] = "Post Created"
+      # flash[:notice] = "Post created"
       redirect_to posts_path
     else
-      render :new
+      # flash[:alert] = "ERROR: Post could not be created"
+      render :index
+      # redirect_to posts_path
     end
   end
 
@@ -53,6 +57,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:name, :description, :user_id, :attached_file, :copies_remaining)
+    params.require(:post).permit(:user_id, :attached_file, :copies_remaining)
   end
 end

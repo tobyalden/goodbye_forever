@@ -1,39 +1,26 @@
-<h1>G O O D B Y E</h1>
+<% if current_user %>
+  <hr>
+  <div class="post-form">
+    <%= form_for(@post) do |f| %>
+      <%= f.label '# of copies:' %>
+      <%= f.number_field :copies_remaining, min: 1, max: 100 %>
+      <%= f.submit data: {disable_with: "Adding post.." } %>
+      <%= f.file_field :attached_file %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= render 'layouts/errors', object: @post %>
+    <% end %>
+  </div>
+  <hr>
+<% end %>
 
-<% @posts.each do |post| %>
-    <ul>
-      <% if is_admin? %>
-        <li>
-          <% if post.in_stock? %>
-            <%= link_to post.name, post_path(post) %>
-          <% elsif post.on_display? %>
-            <s><%= link_to post.name, post_path(post) %></s>
-          <% else %>
-            <s class="grey"><%= link_to post.name, post_path(post) %></s>
-          <% end %>
-            <%= link_to post_path(post), data: {confirm: "Destroy Post?", method: 'delete'} do %>
-              <span class="glyphicon glyphicon-trash red"></span>
-            <% end %>
-        </li>
-
-    <% elsif post.on_display? %>
-      <li>
-        <% if post.in_stock? %>
-          <%= link_to post.name, post_path(post) %>
-        <% elsif post.on_display? %>
-          <s><%= link_to post.name, post_path(post) %></s>
-        <% else %>
-          <s class="grey"><%= link_to post.name, post_path(post) %></s>
-        <% end %>
-      </li>
+<table>
+  <% @posts.each do |post| %>
+    <tr>
+      <td> <%= image_tag post.user.avatar.url(:thumb) %> </td>
+      <td> <%= post.user.name %> </td>
+      <td> <%= link_to post.attached_file_file_name, download_post_path(post)  %> </td>
+      <td> <%= post.copies_remaining %> copies left </td>
+      <td> <%= post.created_at %> </td>
+    <tr>
   <% end %>
-    </ul>
-<% end %>
-
-<%= link_to 'New post', new_post_path %>
-
-<hr>
-
-<% if is_admin? %>
-  <%= link_to 'Purge stale posts (out of stock for more than 24 hours)', purge_posts_path, method: :delete %>
-<% end %>
+</table>
