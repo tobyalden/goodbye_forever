@@ -10,8 +10,8 @@
     <%= render 'layouts/errors', object: @post %>
     <% end %>
   </div>
-  <hr>
 <% end %>
+  <hr>
 
 <table>
   <% @posts.each do |post| %>
@@ -20,7 +20,8 @@
       <td> <%= post.user.name %> </td>
       <td> <%= link_to post.attached_file_file_name, download_post_path(post)  %> </td>
       <td> <%= post.copies_remaining %> copies left </td>
-      <td> <%= post.created_at %> </td>
+      <td> <%= post.created_at.strftime('%I:%M %P') %> </td>
+      <td> <%= post.created_at.strftime('%B %d') %> </td>
     <tr>
   <% end %>
 </table>

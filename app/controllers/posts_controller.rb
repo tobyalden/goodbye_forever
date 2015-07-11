@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show, :download]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.sort_by {|post| post.created_at}
+    @posts = @posts.reverse
     @post = Post.new
   end
 
