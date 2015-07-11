@@ -10,17 +10,19 @@
 <body>
 
   <b id="site-header">GOODBYE FOREVER</b>
-  <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.name %></strong>
-    <%= link_to 'Edit profile', edit_user_registration_path %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> |
-    <%= link_to "Login", new_user_session_path %>
-  <% end %>
+  <div class="">    
+    <% if user_signed_in? %>
+      Logged in as <strong><%= current_user.name %></strong>
+      <%= link_to 'Edit profile', edit_user_registration_path %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path %> |
+      <%= link_to "Login", new_user_session_path %>
+    <% end %>
 
-  <span><%= notice %></span>
-  <span><%= alert %></span>
+    <span><%= notice %></span>
+    <span><%= alert %></span>
+  </div>
 
   <%= yield %>
 
