@@ -14,7 +14,9 @@
   <hr>
 
 <table>
-  <!-- <tr>
+  <!--
+  CHECK IT OUT: http://railscasts.com/episodes/228-sortable-table-columns?view=asciicast
+  <tr>
     <th></th>
     <th><%= link_to "User", :sort => "name" %></th>
     <th><%= link_to "Filename", :sort => "price" %></th>
@@ -30,7 +32,13 @@
       <% else %>
         <td> <s><%= post.attached_file_file_name %></s> </td>
       <% end %>
-      <td> <%= post.copies_remaining %> copies left </td>
+      <% if post.copies_remaining > 1 %>
+        <td> <%= post.copies_remaining %> copies left </td>
+      <% elsif post.copies_remaining == 1 %>
+        <td> <%= post.copies_remaining %> copy left </td>
+      <% else %>
+        <td> 0 copies left </td>
+      <% end %>
       <td> <%= post.created_at.strftime('%I:%M %P') %> </td>
       <td> <%= post.created_at.strftime('%B %d') %> </td>
     <tr>
