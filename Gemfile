@@ -13,6 +13,9 @@ gem 'bcrypt-ruby', '~> 3.1.5', require: "bcrypt"
 gem 'devise'
 gem 'paperclip', '~> 4.3'
 gem 'aws-sdk', '< 2.0'
+gem 'faye'
+gem 'thin', require: false
+gem 'sync'
 
 group :development do
   gem 'byebug'
