@@ -14,33 +14,5 @@
   <hr>
 
 <table>
-  <!--
-  CHECK IT OUT: http://railscasts.com/episodes/228-sortable-table-columns?view=asciicast
-  <tr>
-    <th></th>
-    <th><%= link_to "User", :sort => "name" %></th>
-    <th><%= link_to "Filename", :sort => "price" %></th>
-    <th class='center-header'><%= link_to "Copies remaining", :sort => "released_at" %></th>
-    <th class='center-header' colspan='2'><%= link_to "Upload Date", :sort => "released_at" %></th>
-  </tr> -->
-  <% @posts.each do |post| %>
-    <tr>
-      <td> <%= image_tag post.user.avatar.url(:thumb) %> </td>
-      <td> <%= post.user.name %> </td>
-      <% if post.copies_remaining > 0 %>
-        <td> <%= link_to post.attached_file_file_name, download_post_path(post)  %> </td>
-      <% else %>
-        <td> <s><%= post.attached_file_file_name %></s> </td>
-      <% end %>
-      <% if post.copies_remaining > 1 %>
-        <td> <%= post.copies_remaining %> copies left </td>
-      <% elsif post.copies_remaining == 1 %>
-        <td> <%= post.copies_remaining %> copy left </td>
-      <% else %>
-        <td>  </td>
-      <% end %>
-      <td> <%= post.created_at.strftime('%I:%M %P') %> </td>
-      <td> <%= post.created_at.strftime('%B %d') %> </td>
-    <tr>
-  <% end %>
+  <%= render partial: "post", collection: @posts %>
 </table>
