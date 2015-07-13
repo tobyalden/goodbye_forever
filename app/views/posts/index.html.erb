@@ -14,5 +14,9 @@
   <hr>
 
 <table>
-  <%= render partial: "post", collection: @posts %>
+  <tbody>    
+    <% @posts.each do |post| %>
+        <%= sync partial: "post", resource: post %>
+    <% end %>
+  </tbody>
 </table>

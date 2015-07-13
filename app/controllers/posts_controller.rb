@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 
+  enable_sync only: [:index, :create, :download]
   before_filter :authenticate_user!, except: [:index, :show, :download]
 
   def index
@@ -18,9 +19,10 @@ class PostsController < ApplicationController
 
   def download
     @post = Post.find(params[:id])
-    @post.update(copies_remaining: @post.copies_remaining - 1)
-    if @post.copies_remaining == 0
-      @post.update(time_sold_out: DateTime.now)
+    if @post.copies_remaining <= 1
+      @post.update(copies_remaining: 0, time_sold_out: DateTime.now)
+    else
+      @post.update(copies_remaining: @post.copies_remaining - 1)
     end
     redirect_to @post.attached_file.url
   end
@@ -32,19 +34,16 @@ class PostsController < ApplicationController
       end
     end
     @posts = Post.all
-    redirect_to posts_path
+    redirect_to root_path
   end
 
   def create
     @posts = Post.all
     @post = Post.new(post_params)
     if @post.save
-      # flash[:notice] = "Post created"
-      redirect_to posts_path
+      redirect_to root_path
     else
-      # flash[:alert] = "ERROR: Post could not be created"
       render :index
-      # redirect_to posts_path
     end
   end
 
@@ -52,7 +51,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     post.destroy
     @posts = Post.all
-    redirect_to posts_path
+    redirect_to root_path
   end
 
 
