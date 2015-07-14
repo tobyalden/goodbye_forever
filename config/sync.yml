@@ -1,34 +1,30 @@
-# Faye
-development:
-  server: "http://localhost:9292/faye"
-  adapter_javascript_url: "http://localhost:9292/faye/faye.js"
-  auth_token: iskfizgr5ojribrl
-  adapter: "Faye"
-  async: true
-
-# Pusher
+# # Faye
 # development:
-#   adapter_javascript_url: "http://js.pusher.com/2.0/pusher.min.js"
-#   app_id: "YOUR_PUSHER_APP_ID"
-#   api_key: "YOUR_PUSHER_API_KEY"
-#   auth_token: "YOUR_PUSHER_SECRET"
-#   adapter: "Pusher"
+#   server: "http://localhost:9292/faye"
+#   adapter_javascript_url: "http://localhost:9292/faye/faye.js"
+#   auth_token: iskfizgr5ojribrl
+#   adapter: "Faye"
 #   async: true
 
-# Disabled
-# development:
-#   adapter: false
-
-test:
-  server: "http://localhost:9292/faye"
-  adapter_javascript_url: "http://localhost:9292/faye/faye.js"
-  adapter: "Faye"
-  auth_token: "secret"
-  async: false
-
-production:
-  server: "http://example.com/faye"
-  adapter_javascript_url: "http://localhost:9292/faye/faye.js"
-  adapter: "Faye"
-  auth_token: "99d28f002911985665b5ca92e6080cca7579b3e1af9c9db83f076a9b008d0edc"
+# Pusher
+development:
+  adapter_javascript_url: "http://js.pusher.com/2.0/pusher.min.js"
+  app_id: "129788"
+  api_key: "7a92277ce6f8460a5ec5"
+  auth_token: "cc3f987c54c9a2bf419c"
+  adapter: "Pusher"
   async: true
+# 
+# test:
+#   server: "http://localhost:9292/faye"
+#   adapter_javascript_url: "http://localhost:9292/faye/faye.js"
+#   adapter: "Faye"
+#   auth_token: "secret"
+#   async: false
+#
+# production:
+#   server: "http://example.com/faye"
+#   adapter_javascript_url: "http://localhost:9292/faye/faye.js"
+#   adapter: "Faye"
+#   auth_token: "99d28f002911985665b5ca92e6080cca7579b3e1af9c9db83f076a9b008d0edc"
+#   async: true
