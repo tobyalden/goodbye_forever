@@ -15,3 +15,15 @@
 //= require turbolinks
 //= require sync
 //= require_tree .
+
+$(function() {
+
+    $(document).on("click", '.post', function(e) {
+        if (e.metaKey || e.ctrlKey) {
+            console.log('you control-clicked and opened a post in a new tab')
+        } else {
+            window.location.href = "http://stackoverflow.com";
+        }
+    });
+
+});
