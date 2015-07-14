@@ -19,10 +19,11 @@
 $(function() {
 
     $(document).on("click", '.post', function(e) {
+      // debugger;
         if (e.metaKey || e.ctrlKey) {
-            console.log('you control-clicked and opened a post in a new tab')
+            console.log('you control-clicked and opened a post in a new tab');
         } else {
-            window.location.href = "http://stackoverflow.com";
+            window.location.href = e.toElement.id;
         }
     });
 

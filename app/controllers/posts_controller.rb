@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   end
 
   def download
+    # binding.pry
     @post = Post.find(params[:id])
     if @post.copies_remaining <= 1
       @post.update(copies_remaining: 0, time_sold_out: DateTime.now)

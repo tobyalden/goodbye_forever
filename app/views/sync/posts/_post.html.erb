@@ -2,7 +2,7 @@
     <td> <%= image_tag post.user.avatar.url(:thumb) %> </td>
     <td> <%= post.user.name %> </td>
     <% if post.copies_remaining > 0 %>
-      <td> <%= link_to post.attached_file_file_name, download_post_path(post), remote: true, id: post.id, class: 'post'  %> </td>
+      <td> <%= link_to post.attached_file_file_name, download_post_path(post), remote: true, id: post.attached_file.url, class: 'post'  %> </td>
     <% else %>
       <td> <s><%= post.attached_file_file_name %></s> </td>
     <% end %>
