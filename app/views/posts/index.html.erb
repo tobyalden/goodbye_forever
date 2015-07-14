@@ -1,7 +1,7 @@
 <% if current_user %>
   <hr>
   <div class="post-form">
-    <%= form_for(@post) do |f| %>
+    <%= form_for(@post) do |f|%>
       <%= f.label '# of copies:' %>
       <%= f.number_field :copies_remaining, min: 1, max: 100 %>
       <%= f.submit data: {disable_with: "Adding post.." } %>
@@ -14,9 +14,10 @@
   <hr>
 
 <table>
-  <tbody>    
+  <tbody>
+    <%= sync_new partial: "post", resource: Post.new %>
     <% @posts.each do |post| %>
-        <%= sync partial: "post", resource: post %>
+      <%= sync partial: "post", resource: post %>
     <% end %>
   </tbody>
 </table>
