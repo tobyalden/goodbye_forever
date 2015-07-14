@@ -16,7 +16,7 @@ development:
   async: true
 
 production:
-  adapter_javascript_url: "http://js.pusher.com/2.0/pusher.min.js"
+  adapter_javascript_url: "https://js.pusher.com/2.0/pusher.min.js"
   app_id: "129949"
   api_key: "19feed96d44769c3d8a8"
   auth_token: "76244fb2a94109674f3f"
