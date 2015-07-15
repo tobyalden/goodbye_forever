@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
 
+  sync :all
+
   @@expiration_date = 24 * 60 * 60
 
   validates :attached_file, presence: true

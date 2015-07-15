@@ -4,13 +4,14 @@
   <title>GoodbyeForever</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag Sync.adapter_javascript_url %>
   <%= csrf_meta_tags %>
   <title><%= yield(:title) %></title>
 </head>
 <body>
 
   <b id="site-header">GOODBYE FOREVER</b>
-  <div id="user-info">    
+  <div id="user-info">
     <% if user_signed_in? %>
       Logged in as <strong><%= current_user.name %></strong>
       <%= link_to 'Edit profile', edit_user_registration_path %> |
