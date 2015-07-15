@@ -80,9 +80,9 @@ Rails.application.configure do
 config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
-    :bucket => 'goodbyeforever-dev',
-    :access_key_id => 'AKIAJ6LFDCNFDTX2TJNA',
-    :secret_access_key => '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'
+    :bucket => 'goodbyeforever',
+    :access_key_id   => ENV['S3_KEY'],
+    :secret_access_key => ENV['S3_SECRET']
   }
 }
 Paperclip::Attachment.default_options[:s3_host_name] = 's3-us-west-2.amazonaws.com'
