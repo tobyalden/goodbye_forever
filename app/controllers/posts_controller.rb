@@ -38,11 +38,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @posts = Post.all
+    @posts = Post.all.sort_by {|post| post.created_at}
+    @posts = @posts.reverse
     @post = Post.new(post_params)
     if @post.save
-      redirect_to root_path
+      redirect_to posts_path
     else
+      @posts = Post.all
       render :index
     end
   end

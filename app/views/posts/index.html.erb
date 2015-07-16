@@ -10,14 +10,20 @@
     <%= render 'layouts/errors', object: @post %>
     <% end %>
   </div>
-  <% end %>
+<% end %>
   <hr>
-
 <table>
   <tbody>
-    <%= sync_new partial: "post", resource: Post.new %>
-    <% @posts.each do |post| %>
-      <%= sync partial: "post", resource: post %>
+    <% if is_admin? %>
+      <%= sync_new partial: "admin_post", resource: Post.new %>
+      <% @posts.each do |post| %>
+        <%= sync partial: "admin_post", resource: post %>
+      <% end %>
+    <% else %>
+      <%= sync_new partial: "post", resource: Post.new %>
+      <% @posts.each do |post| %>
+        <%= sync partial: "post", resource: post %>
+      <% end %>
     <% end %>
   </tbody>
 </table>
