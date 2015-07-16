@@ -6,6 +6,11 @@
     <% else %>
       <td> <s><%= post.attached_file_file_name %></s> </td>
     <% end %>
+    <% if is_admin? %>
+      <td class="red">
+        <%= link_to "X", post_path(post),  data: {confirm: "Destroy Post?", method: 'delete'} %>
+      </td>
+    <% end %>
     <% if post.copies_remaining > 1 %>
       <td> <%= post.copies_remaining %> copies left </td>
     <% elsif post.copies_remaining == 1 %>
