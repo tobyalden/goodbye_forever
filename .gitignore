@@ -16,4 +16,4 @@
 /public/system/posts/attached_files/*
 
 # Ignore ENV
-/*.env
+/.env

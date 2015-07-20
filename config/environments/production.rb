@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  config.action_mailer.default_url_options = {host: "goodbyeforever.herokuapp.com"}
+  config.action_mailer.default_url_options = {host: ENV['MAILGUN_DEFAULT_URL']}
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -93,7 +93,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => 'goodbye-forever',
+      :bucket => ENV['S3_BUCKET_NAME'],
       :access_key_id   => ENV['S3_KEY'],
       :secret_access_key => ENV['S3_SECRET']
     }
