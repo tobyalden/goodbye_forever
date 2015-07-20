@@ -1,4 +1,17 @@
 Rails.application.configure do
+
+  config.action_mailer.default_url_options = {host: "goodbyeforever-dev.herokuapp.com"}
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandboxd91e1502ace14d3b8ccadd411c2dd339.mailgun.org",
+    :user_name => "postmaster@sandboxd91e1502ace14d3b8ccadd411c2dd339.mailgun.org",
+    :password => "bbbfd3f4b05fd8a3e4d3c317a633ba97"
+  }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -77,14 +90,15 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => 'goodbye-forever',
-    :access_key_id   => ENV['S3_KEY'],
-    :secret_access_key => ENV['S3_SECRET']
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'goodbye-forever',
+      :access_key_id   => ENV['S3_KEY'],
+      :secret_access_key => ENV['S3_SECRET']
+    }
   }
-}
-Paperclip::Attachment.default_options[:s3_host_name] = 's3-us-west-2.amazonaws.com'
+
+  Paperclip::Attachment.default_options[:s3_host_name] = 's3-us-west-2.amazonaws.com'
 
 end
