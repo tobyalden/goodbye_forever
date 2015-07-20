@@ -1,6 +1,6 @@
 Rails.application.configure do
 
-  config.action_mailer.default_url_options = {host: "goodbyeforever-dev.herokuapp.com"}
+  config.action_mailer.default_url_options = {host: "goodbyeforever.herokuapp.com"}
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
