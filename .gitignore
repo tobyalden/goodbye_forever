@@ -14,3 +14,6 @@
 
 # Ignore Paperclip Dev Files
 /public/system/posts/attached_files/*
+
+# Ignore ENV
+/*.env
