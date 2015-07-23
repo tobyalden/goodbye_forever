@@ -16,6 +16,6 @@
     <% else %>
       <td>  </td>
     <% end %>
-    <td> <%= post.created_at.strftime('%I:%M %P') %> </td>
-    <td> <%= post.created_at.strftime('%B %d') %> </td>
+    <td> <%= local_time(post.created_at, '%l:%M %P') %> </td>
+    <td> <%= local_time(post.created_at, '%B %d') %> </td>
   </tr>
