@@ -4,7 +4,7 @@
     <%= form_for(@post) do |f|%>
       <%= f.label '# of copies:' %>
       <%= f.number_field :copies_remaining, min: 1, max: 100 %>
-      <%= f.submit data: {disable_with: "Adding post.." } %>
+      <%= f.submit data: {disable_with: "Adding post.." }, disabled: true %>
       <%= f.file_field :attached_file %>
       <%= f.hidden_field :user_id, value: current_user.id %>
     <%= render 'layouts/errors', object: @post %>
