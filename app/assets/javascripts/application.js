@@ -15,12 +15,13 @@
 //= require turbolinks
 //= require sync
 //= require_tree .
+//= require local_time
 
 $(function() {
 
     $(document).on("click", '.post', function(e) {
         if (e.metaKey || e.ctrlKey) {
-            console.log('you control-clicked and opened a post in a new tab');
+            // console.log('you control-clicked and opened a post in a new tab');
         } else {
             window.location.href = e.toElement.id;
         }
